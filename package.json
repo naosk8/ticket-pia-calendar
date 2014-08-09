@@ -7,6 +7,10 @@
   },
   "dependencies": {
     "express": "3.5.1",
-    "ect": "0.5.9"
+    "ect": "0.5.9",
+    "cheerio": "^0.17.0",
+    "request": "^2.37.0",
+    "underscore": "~1.6.0",
+    "promise": "~5.0.0"
   }
 }
