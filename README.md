@@ -21,12 +21,17 @@ $ npm install<br>
 $ node app.js<br>
 
 ## 操作方法
-まず、チケットぴあで、興味のあるイベントを抽出するための検索条件を決める。
+まず、任意のブラウザで以下のURLにアクセスする。<br>
+http://localhost:3001<br>
+<br>
+次に、チケットぴあ(http://ticket-search.pia.jp/pia/search_all.do)で<br>
+興味のあるイベントを抽出するための検索条件を決める。<br>
 ![](https://raw.githubusercontent.com/naosk8/ticket-pia-calendar/master/images/description1.png?token=ACwFKxHGtXmTCnLF3wP3VwNgKpWNBIq3ks5XNqswwA%3D%3D)
-
-定めたURLを、このアプリにて入力して、「カレンダーに表示」を押下
+<br>
+<br>
+検索した際のチケットぴあのURLをコピーし、このアプリに入力の上、「カレンダーに表示」を押下<br>
 ![](https://raw.githubusercontent.com/naosk8/ticket-pia-calendar/master/images/description2.png?token=ACwFK-32RY3JCeSDSkhwkNkFn3ZveRRGks5XNqwZwA%3D%3D)
-
+<br>
 以上。
 興味のあるイベントをクリックしたら、「チケットぴあ」の詳細ページへと移動します。
 
