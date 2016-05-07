@@ -58,7 +58,12 @@ $(document).ready(function() {
     $('#loadEventBtn').bind('click', getApiEvent);
 });
 
+var apiExecuting = false;
 function getApiEvent() {
+    if (apiExecuting == true) {
+        return;
+    }
+    apiExecuting =  true;
     // 入力されたぴあのイベント検索クエリからスケジュールをクローリング
     var inputPiaURI = document.querySelector('#piaURI');
     if (inputPiaURI.value.length === 0) {
@@ -76,9 +81,11 @@ function getApiEvent() {
                 $('#calendar').fullCalendar('addEventSource', {events: data.events});
                 $('#notice').text("");
             }
+            apiExecuting = false;
         },
         error: function(data) {
             console.log('error');
+            apiExecuting = false;
         }
     });
 }
