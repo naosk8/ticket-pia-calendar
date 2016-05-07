@@ -4889,7 +4889,7 @@ function AgendaEventRenderer() {
 			classes = classes.concat(event.source.className || []);
 		}
 		if (url) {
-			html += "a href='" + htmlEscape(event.url) + "'";
+			html += "a href='" + htmlEscape(event.url) + "' target='_blank'";
 		}else{
 			html += "div";
 		}

@@ -13,7 +13,23 @@
 
 <% block 'body' : %>
     <div class='indexPanel'>
-        <p><input type='text' id='piaURI' value=''><button id='loadEventBtn' href='javascript:void(0)'>読み込み</button></p>
-        <div id='calendar'></div>
+        <div class="headerPanel">
+            <h1 class="piaLink">
+                <a href="http://ticket-search.pia.jp/pia/search_all.do" target="_blank">
+                    <img src="img/logo-pia.png" width="160px">
+                </a>
+                <span class="title">カレンダー</span>
+            </h1>
+            <div class="inputPiaUri">
+                <p>
+                    <input type='text' id='piaURI' value='//チケットぴあでの検索結果ページのURL(http://ticket-search.pia.jp/~)を貼り付けてください' onclick="this.select(0,this.value.length)">
+                    <button id='loadEventBtn' href='javascript:void(0)'>カレンダーに表示</button>
+                </p>
+                <p id="notice"></p>
+            </div>
+        </div>
+        <div class="contentPanel">
+            <div id='calendar'></div>
+        </div>
     </div>
 <% end %>

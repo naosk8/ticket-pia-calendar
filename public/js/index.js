@@ -6,9 +6,10 @@ var formattedDate = m.format("YYYY-MM-DD");
 // events = {title: string, start: string(YYYY-MM-DD(THH:MI:SS)), end: string, url: string (, id: number)}[]
 var calendarSettings = {
     header: {
-        left: 'prev,next today',
+        left: '',
+//        left: 'prev, next, today',
         center: 'title',
-        right: 'month, agendaWeek, agendaDay'
+//        right: 'month, agendaWeek, agendaDay'
     },
     defaultDate: formattedDate,
     editable: false,
@@ -24,7 +25,7 @@ var calendarSettings = {
     ],
     // ボタン文字列
     buttonText: {
-        today:    '今日',
+        today:    '今月',
         month:    '月',
         week:     '週',
         day:      '日'
@@ -52,6 +53,7 @@ var calendarSettings = {
 };
 
 $(document).ready(function() {
+    calendarSettings.height = $(document).height() - 130;
     $('#calendar').fullCalendar(calendarSettings);
     $('#loadEventBtn').bind('click', getApiEvent);
 });
@@ -67,8 +69,13 @@ function getApiEvent() {
         dataType: 'json',
         data: {piaURI: inputPiaURI.value},
         success: function(data) {
-            console.log(data);
-            $('#calendar').fullCalendar('addEventSource', {events: data.events});
+            $('#calendar').fullCalendar('removeEvents');
+            if (data.totalEventNum > 500) {
+                $('#notice').text("イベント数が500件以下となるように検索条件を調整してください");
+            } else {
+                $('#calendar').fullCalendar('addEventSource', {events: data.events});
+                $('#notice').text("");
+            }
         },
         error: function(data) {
             console.log('error');
